@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SmartBooks - Apparel & Gifts</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: #131313;
+        color: white;
+        font-family: 'Kumbh Sans', sans-serif;
+        text-align: center;
+        padding: 20px;
+      }
+      .contact-container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        background: #222;
+        border-radius: 10px;
+      }
+      .contact-container h2 {
+        margin-bottom: 20px;
+      }
+      .contact-info {
+        font-size: 18px;
+        line-height: 1.6;
+      }
+      .contact-info i {
+        color: #f39c12;
+        margin-right: 10px;
+      }
+      .contact-image {
+        margin-top: 20px;
+      }
+      .contact-image img {
+        width: 100%;
+        max-width: 400px;
+        border-radius: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar Section -->
+    <nav class="navbar">
+      <div class="navbar__container">
+        <a href="index.html" id="navbar__logo">
+          <i class="fas fa-gem"></i>SmartBooks
+        </a>
+        <div class="navbar__toggle" id="mobile-menu">
+          <span class="bar"></span> <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+        <ul class="navbar__menu">
+          <li class="navbar__item">
+            <a href="index.html" class="navbar__links">Home</a>
+          </li>
+          <li class="navbar__item">
+            <a href="products.html" class="navbar__links">Products</a>
+          </li>
+          <li class="navbar__item">
+            <a href="contact.html" class="navbar__links">Contact</a>
+          </li>
+          <li class="navbar__item">
+            <a href="cart.html" class="navbar__links">Cart</a>
+          </li>
+          <li class="navbar__btn" id="auth-button">
+            <a href="login.html" class="button" id="sign-in">Sign In</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!-- Contact Section -->
+
+    <div class="main">
+      <div class="main__container">
+        <div class="main__content">
+          <h1>Apparel & Gifts</h1>
+          <p>Shop the Latest University Apparel</p>
+        </div>
+        <div class="main__img--container">
+          <img id="main__img" src="images/students.jpg" />
+        </div>
+      </div>
+    </div>
+
+
+    <div class="services">
+      <div class="product__container">
+        <a href="gift-product-page.html" style="text-decoration: none; color: white;">
+          <div class="product__card">
+            <img src="images/shirt - Copy.png" height="225px">
+            <h2 id="t-shirt-name">University T-Shirt</h2>
+            <p id="t-shirt-price">$15.00</p>
+              <button style="background-color: teal; transition: background-color 0.3s ease;"><a href="gift-product-page.html" style="text-decoration: none; color: white;">Details</a></button>    
+          </div>
+        </a>
+
+        <a href="hat-product-page.html" style="text-decoration: none; color: white;">
+          <div class="product__card">
+            <img src="images/hat.jpg" height="225px">
+            <h2 id="hat-name">University Hat</h2>
+            <p id="hat-price">$25.00</p>
+              <button style="background-color: teal; transition: background-color 0.3s ease;"><a href="hat-product-page.html" style="text-decoration: none; color: white;">Details</a></button>    
+          </div>
+        </a>
+        
+        <a href="hoodie-product-page.html" style="text-decoration: none; color: white;">
+          <div class="product__card">
+            <img src="images/hoodie.jpg" height="225px">
+            <h2 id="hoodie-name">University Hoodie</h2>
+            <p id="hoodie-price">$50.00</p>
+              <button style="background-color: teal; transition: background-color 0.3s ease;"><a href="hoodie-product-page.html" style="text-decoration: none; color: white;">Details</a></button>    
+          </div>
+        </a>
+      </div>
+    </div>
+
+
+<!-- Footer Section -->
+<!-- Footer Section -->
+<div class="footer__container" style="margin-top: 170px;">
+  <section class="social__media">
+    <div class="social__media--wrap">
+      <div class="footer__logo">
+        <a href="/" id="footer__logo"><i class="fas fa-gem"></i>SmartBooks</a>
+      </div>
+      <p class="website__rights">© SmartBooks 2025. All rights reserved</p>
+      <div class="social__icons">
+        <a
+          class="social__icon--link"
+          target="_blank"
+          aria-label="Facebook"
+        >
+          <i class="fab fa-facebook"></i>
+        </a>
+        <a
+          class="social__icon--link"
+          target="_blank"
+          aria-label="Instagram"
+        >
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a
+          class="social__icon--link"
+          target="_blank"
+          aria-label="Youtube"
+        >
+          <i class="fab fa-youtube"></i>
+        </a>
+        <a
+          class="social__icon--link"
+          target="_blank"
+          aria-label="Twitter"
+        >
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a
+          class="social__icon--link"
+          target="_blank"
+          aria-label="LinkedIn"
+        >
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+</div>
+
+    <script src="app.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+          let username = sessionStorage.getItem("username"); 
+          let signInButton = document.getElementById("sign-in");
+      
+          if (username) {
+              signInButton.textContent = username;
+              signInButton.href = "profile.html";
+          }
+      });
+      </script>
+
+<script>
+  // Function to fetch product details and update the page
+  async function fetchProductDetails(productId, nameElementId, priceElementId) {
+    try {
+      const response = await fetch(`/api/products/${productId}`);
+      const product = await response.json();
+
+      if (response.ok) {
+        // Dynamically update the name and price
+        document.getElementById(nameElementId).textContent = product.name;
+        document.getElementById(priceElementId).textContent = `$${product.price.toFixed(2)}`;
+      } else {
+        console.error("Failed to fetch product details for", productId);
+      }
+    } catch (error) {
+      console.error("Error fetching product details:", error);
+    }
+  }
+
+  // Fetch product details for each item (use the actual product IDs from your database)
+  fetchProductDetails("67ab6fb944f44d65abac8b5b", "t-shirt-name", "t-shirt-price");  // Example for University T-Shirt
+  fetchProductDetails("67be1c761acce9ba54d4b6cd", "hat-name", "hat-price");              // Example for University Hat
+  fetchProductDetails("67be1ca31acce9ba54d4b6ce", "hoodie-name", "hoodie-price");    // Example for University Hoodie
+</script>
+
+
+
+  </body>
+</html>

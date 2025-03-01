@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SmartBooks</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
+      integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="icon" type="image/png" href="images/favicon.png" />
+
+    <style>
+      .product-container {
+        background-color: #fafafa;
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        width: 45%; /* Make each container take up 45% of the available width */
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar Section -->
+<nav class="navbar">
+  <div class="navbar__container">
+    <a href="index.html" id="navbar__logo">
+      <i class="fas fa-gem"></i>SmartBooks
+    </a>
+    <div class="navbar__toggle" id="mobile-menu">
+      <span class="bar"></span> <span class="bar"></span>
+      <span class="bar"></span>
+    </div>
+    <ul class="navbar__menu">
+      <li class="navbar__item">
+        <a href="index.html" class="navbar__links">Home</a>
+      </li>
+      <li class="navbar__item">
+        <a href="products.html" class="navbar__links">Products</a>
+      </li>
+      <li class="navbar__item">
+        <a href="contact.html" class="navbar__links">Contact</a>
+      </li>
+      <li class="navbar__item">
+        <a href="cart.html" class="navbar__links">Cart</a>
+      </li>
+      <li class="navbar__btn" id="auth-button">
+        <a href="login.html" class="button" id="sign-in">Sign In</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+
+    <!-- Hero Section -->
+    <div class="main">
+      <div class="main__container">
+        <h1 style="color: white;">Inventory Management</h1>
+        
+        <!-- Wrapper for product containers -->
+        <div class="product-container-wrapper">
+          <!-- University T-Shirt Section -->
+          <div class="product-container" id="university-tshirt">
+            <h2>University T-Shirt</h2>
+            <div class="product-info">
+              <p><strong>Name:</strong> <span id="product-name-67ab6fb944f44d65abac8b5b">Loading...</span></p>
+              <p><strong>Price:</strong> $<span id="product-price-67ab6fb944f44d65abac8b5b">Loading...</span></p>
+              <p><strong>Inventory:</strong> <span id="product-inventory-67ab6fb944f44d65abac8b5b">Loading...</span></p>
+            </div>
+            <form id="update-inventory-form-67ab6fb944f44d65abac8b5b">
+              <div class="input-group">
+                <label for="new-inventory-67ab6fb944f44d65abac8b5b">New Inventory:</label>
+                <input type="number" id="new-inventory-67ab6fb944f44d65abac8b5b" name="inventory" min="0" required />
+              </div>
+              <br>
+              <button type="submit" class="button">Update Inventory</button>
+            </form>
+          </div>
+
+          <!-- Calculus Textbook Section -->
+          <div class="product-container" id="calculus-textbook">
+            <h2>Calculus Textbook</h2>
+            <div class="product-info">
+              <p><strong>Name:</strong> <span id="product-name-67ab75e6931b4696e7563d99">Loading...</span></p>
+              <p><strong>Price:</strong> $<span id="product-price-67ab75e6931b4696e7563d99">Loading...</span></p>
+              <p><strong>Inventory:</strong> <span id="product-inventory-67ab75e6931b4696e7563d99">Loading...</span></p>
+            </div>
+            <form id="update-inventory-form-67ab75e6931b4696e7563d99">
+              <div class="input-group">
+                <label for="new-inventory-67ab75e6931b4696e7563d99">New Inventory:</label>
+                <input type="number" id="new-inventory-67ab75e6931b4696e7563d99" name="inventory" min="0" required />
+              </div>
+              <br>
+              <button type="submit" class="button">Update Inventory</button>
+            </form>
+            
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+    <!-- Footer Section -->
+    <!-- Footer Section -->
+<div class="footer__container">
+  <section class="social__media">
+    <div class="social__media--wrap">
+      <div class="footer__logo">
+        <a href="/" id="footer__logo"><i class="fas fa-gem"></i>SmartBooks</a>
+      </div>
+      <p class="website__rights">© SmartBooks 2025. All rights reserved</p>
+      <div class="social__icons">
+        <a
+          class="social__icon--link"
+          target="_blank"
+          aria-label="Facebook"
+        >
+          <i class="fab fa-facebook"></i>
+        </a>
+        <a
+          class="social__icon--link"
+          target="_blank"
+          aria-label="Instagram"
+        >
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a
+          class="social__icon--link"
+          target="_blank"
+          aria-label="Youtube"
+        >
+          <i class="fab fa-youtube"></i>
+        </a>
+        <a
+          class="social__icon--link"
+          target="_blank"
+          aria-label="Twitter"
+        >
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a
+          class="social__icon--link"
+          target="_blank"
+          aria-label="LinkedIn"
+        >
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+</div>
+
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+          let username = sessionStorage.getItem("username"); 
+          let signInButton = document.getElementById("sign-in");
+      
+          if (username) {
+              signInButton.textContent = username;
+              signInButton.href = "profile.html";
+          }
+      });
+      </script>
+  
+    <script>
+      document.addEventListener("DOMContentLoaded", async function () {
+          const tshirtId = "67ab6fb944f44d65abac8b5b";  // University T-Shirt ID
+          const textbookId = "67ab75e6931b4696e7563d99"; // Calculus Textbook ID
+      
+          try {
+              // Fetch University T-Shirt details
+              const tshirtResponse = await fetch(`http://localhost:3000/api/products/${tshirtId}`);
+              const tshirt = await tshirtResponse.json();
+              
+              // Display University T-Shirt info
+              document.getElementById("product-name-67ab6fb944f44d65abac8b5b").textContent = tshirt.name;
+              document.getElementById("product-price-67ab6fb944f44d65abac8b5b").textContent = tshirt.price;
+              document.getElementById("product-inventory-67ab6fb944f44d65abac8b5b").textContent = tshirt.inventory;
+      
+              // Fetch Calculus Textbook details
+              const textbookResponse = await fetch(`http://localhost:3000/api/products/${textbookId}`);
+              const textbook = await textbookResponse.json();
+              
+              // Display Calculus Textbook info
+              document.getElementById("product-name-67ab75e6931b4696e7563d99").textContent = textbook.name;
+              document.getElementById("product-price-67ab75e6931b4696e7563d99").textContent = textbook.price;
+              document.getElementById("product-inventory-67ab75e6931b4696e7563d99").textContent = textbook.inventory;
+      
+              // Handle form submission for University T-Shirt inventory update
+              document.getElementById("update-inventory-form-67ab6fb944f44d65abac8b5b").addEventListener("submit", async function (event) {
+                  event.preventDefault();
+      
+                  const newInventory = document.getElementById("new-inventory-67ab6fb944f44d65abac8b5b").value;
+      
+                  try {
+                      const updateResponse = await fetch(`http://localhost:3000/api/products/${tshirtId}`, {
+                          method: "PUT",
+                          headers: {
+                              "Content-Type": "application/json",
+                          },
+                          body: JSON.stringify({ inventory: newInventory }),
+                      });
+      
+                      const data = await updateResponse.json();
+      
+                      // Optionally, refresh the inventory data
+                      document.getElementById("product-inventory-67ab6fb944f44d65abac8b5b").textContent = newInventory;
+      
+                      // Refresh the page to reflect the updated data
+                      window.location.reload(); // This will refresh the page
+      
+                  } catch (error) {
+                      console.error("Error updating inventory:", error);
+                      alert("Failed to update inventory.");
+                  }
+              });
+      
+              // Handle form submission for Calculus Textbook inventory update
+              document.getElementById("update-inventory-form-67ab75e6931b4696e7563d99").addEventListener("submit", async function (event) {
+                  event.preventDefault();
+      
+                  const newInventory = document.getElementById("new-inventory-67ab75e6931b4696e7563d99").value;
+      
+                  try {
+                      const updateResponse = await fetch(`http://localhost:3000/api/products/${textbookId}`, {
+                          method: "PUT",
+                          headers: {
+                              "Content-Type": "application/json",
+                          },
+                          body: JSON.stringify({ inventory: newInventory }),
+                      });
+      
+                      const data = await updateResponse.json();
+      
+                      // Optionally, refresh the inventory data
+                      document.getElementById("product-inventory-67ab75e6931b4696e7563d99").textContent = newInventory;
+      
+                      // Refresh the page to reflect the updated data
+                      window.location.reload(); // This will refresh the page
+      
+                  } catch (error) {
+                      console.error("Error updating inventory:", error);
+                      alert("Failed to update inventory.");
+                  }
+              });
+          } catch (error) {
+              console.error("Error fetching product data:", error);
+              alert("Failed to load product data.");
+          }
+      });
+      </script>
+                        
+    
+  </body>
+</html>

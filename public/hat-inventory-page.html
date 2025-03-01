@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SmartBooks</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
+      integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="icon" type="image/png" href="images/favicon.png" />
+
+    <style>
+
+
+ /* Basic row class to create horizontal space between columns */
+ .row {
+      display: flex; /* Use flexbox for easy layout */
+      margin-right: -15px; /* Adjust margins for spacing */
+      margin-left: -15px;
+    }
+
+    /* Basic column class to define individual columns inside a row */
+    .col {
+      flex: 1; /* Make columns share space equally */
+      padding: 0 15px; /* Add padding to columns */
+      box-sizing: border-box;
+    }
+
+      
+.product-container {
+  background-color: white;
+  color: black;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  max-width: 300px; /* Adjust this value as needed */
+  width: 100%; 
+}
+
+
+.product-container h2 {
+  text-align: left !important;
+}
+
+
+.product-info p {
+  margin: 5px 0;
+}
+
+.input-group {
+  margin-bottom: 10px;
+}
+
+.button {
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  background: #f77062;
+  
+}
+
+.button:hover {
+  background-color: #333;
+}
+
+
+.main2 {
+  color: white;
+  background-color: #131313;
+  padding-left: 50px;
+}
+
+.main2 h1 {
+  padding-left: 30px;
+  padding-top: 30px;
+}
+
+
+
+.main2 h2,
+.main2 ul {
+  padding-left: 100px;
+}
+
+
+
+    </style>
+  </head>
+  <body>
+    <!-- Navbar Section -->
+<nav class="navbar">
+  <div class="navbar__container">
+    <a href="index.html" id="navbar__logo">
+      <i class="fas fa-gem"></i>SmartBooks
+    </a>
+    <div class="navbar__toggle" id="mobile-menu">
+      <span class="bar"></span> <span class="bar"></span>
+      <span class="bar"></span>
+    </div>
+    <ul class="navbar__menu">
+      <li class="navbar__item">
+        <a href="index.html" class="navbar__links">Home</a>
+      </li>
+      <li class="navbar__item">
+        <a href="products.html" class="navbar__links">Products</a>
+      </li>
+      <li class="navbar__item">
+        <a href="contact.html" class="navbar__links">Contact</a>
+      </li>
+      <li class="navbar__item">
+        <a href="cart.html" class="navbar__links">Cart</a>
+      </li>
+      <li class="navbar__btn" id="auth-button">
+        <a href="login.html" class="button" id="sign-in">Sign In</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+
+<!-- Hero Section -->
+<div class="main2">
+  <h1 style="margin-bottom: 20px;"><span id="product-name-3">Loading...</span></h1>
+
+  <h2>Name: <span id="product-name-2">Loading...</span></h2>
+  <h2>Price: $<span id="product-price-2">Loading...</span></h2>
+  <h2>Inventory: <span id="product-inventory-2">Loading...</span></h2>
+  <br><br>
+
+
+  <div class="row">
+
+    <div class="col">
+      <div class="product-container" id="university-tshirt">
+        <!-- <h2>University T-Shirt</h2> -->
+        <div class="product-info">
+          <p><strong>Name:</strong> <span id="product-name-67ab6fb944f44d65abac8b5b">Loading...</span></p>
+          </div>
+          <form id="update-inventory-form-name-name">
+            <div class="input-group">
+              <label for="new-name-67ab6fb944f44d65abac8b5b">New Name:</label>
+              <input type="text" id="new-name-67ab6fb944f44d65abac8b5b" name="name" required />
+            </div>
+            <br>
+            <button type="submit" class="button">Update Name</button>
+          </form>
+          
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="product-container" id="price">
+        <div class="product-info">
+          <p ><strong>Price:</strong> $<span id="product-price-67ab6fb944f44d65abac8b5b">Loading...</span></p>
+        </div>
+        <form id="update-price-form-67ab6fb944f44d65abac8b5b">
+          <div class="input-group">
+            <label for="new-price-67ab6fb944f44d65abac8b5b">New Price:</label>
+            <input type="number" id="new-price-67ab6fb944f44d65abac8b5b" name="price" min="0" required />
+          </div>
+          <br>
+          <button type="submit" class="button">Update Price</button>
+        </form>
+      </div>      
+    </div>
+
+    <div class="col">
+      <div class="product-container" id="university-tshirt">
+        <div class="product-info">
+          <p><strong>Inventory:</strong> <span id="product-inventory-67ab6fb944f44d65abac8b5b">Loading...</span></p>
+        </div>
+        <form id="update-inventory-form-67ab6fb944f44d65abac8b5b">
+          <div class="input-group">
+            <label for="new-inventory-67ab6fb944f44d65abac8b5b">New Inventory:</label>
+            <input type="number" id="new-inventory-67ab6fb944f44d65abac8b5b" name="inventory" min="0" required />
+          </div>
+          <br>
+          <button type="submit" class="button">Update Inventory</button>
+        </form>
+      </div>
+      
+    </div>
+
+  </div>
+
+
+  <br>
+  <div class="row">
+    <div class="col">
+    <!-- Back Button -->
+      <div style="text-align: center; margin-top: 20px;">
+      <a href="inventory-links.html" style="text-decoration: none;">  
+        <button class="button" style="max-width: 15%; background-color: #F06C6C;">Back</button>
+      </a>
+      </div>
+    </div>    
+  </div>
+
+
+  
+  
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+</div>
+
+
+    
+    <!-- Footer Section -->
+    <!-- Footer Section -->
+<div class="footer__container">
+  <section class="social__media">
+    <div class="social__media--wrap">
+      <div class="footer__logo">
+        <a href="/" id="footer__logo"><i class="fas fa-gem"></i>SmartBooks</a>
+      </div>
+      <p class="website__rights">© SmartBooks 2025. All rights reserved</p>
+      <div class="social__icons">
+        <a
+          class="social__icon--link"
+          target="_blank"
+          aria-label="Facebook"
+        >
+          <i class="fab fa-facebook"></i>
+        </a>
+        <a
+          class="social__icon--link"
+          target="_blank"
+          aria-label="Instagram"
+        >
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a
+          class="social__icon--link"
+          target="_blank"
+          aria-label="Youtube"
+        >
+          <i class="fab fa-youtube"></i>
+        </a>
+        <a
+          class="social__icon--link"
+          target="_blank"
+          aria-label="Twitter"
+        >
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a
+          class="social__icon--link"
+          target="_blank"
+          aria-label="LinkedIn"
+        >
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+</div>
+
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+          let username = sessionStorage.getItem("username"); 
+          let signInButton = document.getElementById("sign-in");
+      
+          if (username) {
+              signInButton.textContent = username;
+              signInButton.href = "profile.html";
+          }
+      });
+      </script>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", async function () {
+    const tshirtId = "67be1c761acce9ba54d4b6cd";  // University Hat
+    let tshirt;
+
+    try {
+        // Fetch University T-Shirt details
+        const tshirtResponse = await fetch(`http://localhost:3000/api/products/${tshirtId}`);
+        tshirt = await tshirtResponse.json();
+
+        // Display University T-Shirt info
+        document.getElementById("product-name-67ab6fb944f44d65abac8b5b").textContent = tshirt.name;
+        document.getElementById("product-price-67ab6fb944f44d65abac8b5b").textContent = tshirt.price;
+        document.getElementById("product-inventory-67ab6fb944f44d65abac8b5b").textContent = tshirt.inventory;
+
+        document.getElementById("product-inventory-2").textContent = tshirt.inventory;
+        document.getElementById("product-name-2").textContent = tshirt.name;
+        document.getElementById("product-name-3").textContent = tshirt.name;
+        document.getElementById("product-price-2").textContent = tshirt.price;
+
+    } catch (error) {
+        console.error("Error fetching product data:", error);
+        alert("Failed to fetch product data.");
+    }
+
+    // Handle form submissions
+    async function handleUpdate(event, updateField, value) {
+        event.preventDefault();
+        const newValue = document.getElementById(value).value;
+
+        if (newValue.trim() === "") {
+            alert("Please enter a valid value.");
+            return;
+        }
+
+        const updatedData = {
+            ...tshirt,  // Spread current product data to retain unmodified fields
+            [updateField]: newValue
+        };
+
+        try {
+            const updateResponse = await fetch(`http://localhost:3000/api/products/${tshirtId}`, {
+                method: "PATCH",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(updatedData),
+            });
+
+            const data = await updateResponse.json();
+            if (updateField === "name") {
+                document.getElementById("product-name-67ab6fb944f44d65abac8b5b").textContent = newValue;
+            } else if (updateField === "price") {
+                document.getElementById("product-price-67ab6fb944f44d65abac8b5b").textContent = newValue;
+            } else if (updateField === "inventory") {
+                document.getElementById("product-inventory-67ab6fb944f44d65abac8b5b").textContent = newValue;
+            }
+            // alert("Update successful!");
+            window.location.reload();
+        } catch (error) {
+            console.error("Error updating data:", error);
+            alert("Failed to update data.");
+        }
+    }
+
+    // Attach event listeners
+    document.getElementById("update-inventory-form-67ab6fb944f44d65abac8b5b").addEventListener("submit", (event) => handleUpdate(event, "inventory", "new-inventory-67ab6fb944f44d65abac8b5b"));
+    document.getElementById("update-price-form-67ab6fb944f44d65abac8b5b").addEventListener("submit", (event) => handleUpdate(event, "price", "new-price-67ab6fb944f44d65abac8b5b"));
+    document.getElementById("update-inventory-form-name-name").addEventListener("submit", (event) => handleUpdate(event, "name", "new-name-67ab6fb944f44d65abac8b5b"));
+});
+
+</script>
+
+  
+                            
+    
+  </body>
+</html>

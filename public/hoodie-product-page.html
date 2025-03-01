@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SmartBooks</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
+      integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/png" href="images/favicon.png" />
+    <style>
+      /* Basic layout */
+      .product-container {
+        max-width: 400px;
+        margin: 100px auto;
+        padding: 20px;
+        background: #1a1a1a;
+        border-radius: 8px;
+        text-align: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      .product-container img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+      }
+
+      .product-container h2 {
+        color: #f77062;
+        margin: 15px 0;
+        font-size: 24px;
+      }
+
+      .product-container p {
+        color: #fff;
+        margin-bottom: 20px;
+        font-size: 18px;
+      }
+
+      .product-container .price {
+        font-size: 20px;
+        color: #4837ff;
+        margin-bottom: 20px;
+      }
+
+      #main__img2 {
+        width: 80%;
+        max-width: 300px;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+      }
+
+      .button {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px 20px;
+        background-color: #f77062;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      .button:hover {
+        background-color: #4837ff;
+        transition: background-color 0.3s ease;
+      }
+    </style>
+  </head>
+  <body>
+        <!-- Navbar Section -->
+<nav class="navbar">
+  <div class="navbar__container">
+    <a href="index.html" id="navbar__logo">
+      <i class="fas fa-gem"></i>SmartBooks
+    </a>
+    <div class="navbar__toggle" id="mobile-menu">
+      <span class="bar"></span> <span class="bar"></span>
+      <span class="bar"></span>
+    </div>
+    <ul class="navbar__menu">
+      <li class="navbar__item">
+        <a href="index.html" class="navbar__links">Home</a>
+      </li>
+      <li class="navbar__item">
+        <a href="products.html" class="navbar__links">Products</a>
+      </li>
+      <li class="navbar__item">
+        <a href="contact.html" class="navbar__links">Contact</a>
+      </li>
+      <li class="navbar__item">
+        <a href="cart.html" class="navbar__links">Cart</a>
+      </li>
+      <li class="navbar__btn" id="auth-button">
+        <a href="login.html" class="button" id="sign-in">Sign In</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+    <!-- Product Section -->
+    <div class="main">
+      <div class="main__container">
+        <div class="main__img--container">
+          <img id="main__img2" src="images/hoodie.jpg" />
+        </div>
+        <div class="main__content">
+          <h1 id="product-name">University Hoodie</h1>
+          <p id="stock-info">Loading stock info...</p>
+          <p id="product-price">$50.00</p>
+          <button id="add-to-cart-btn" class="main__btn">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Section -->
+    <!-- Footer Section -->
+<div class="footer__container">
+  <section class="social__media">
+    <div class="social__media--wrap">
+      <div class="footer__logo">
+        <a href="/" id="footer__logo"><i class="fas fa-gem"></i>SmartBooks</a>
+      </div>
+      <p class="website__rights">© SmartBooks 2025. All rights reserved</p>
+      <div class="social__icons">
+        <a
+          class="social__icon--link"
+          target="_blank"
+          aria-label="Facebook"
+        >
+          <i class="fab fa-facebook"></i>
+        </a>
+        <a
+          class="social__icon--link"
+          target="_blank"
+          aria-label="Instagram"
+        >
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a
+          class="social__icon--link"
+          target="_blank"
+          aria-label="Youtube"
+        >
+          <i class="fab fa-youtube"></i>
+        </a>
+        <a
+          class="social__icon--link"
+          target="_blank"
+          aria-label="Twitter"
+        >
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a
+          class="social__icon--link"
+          target="_blank"
+          aria-label="LinkedIn"
+        >
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+</div>
+
+
+
+<script>
+  // Replace this with the correct product ID from the URL or wherever you're storing it
+  const productId = "67be1ca31acce9ba54d4b6ce"; // Example product ID
+
+  // Fetch product data
+  fetch(`/api/products/${productId}`)
+    .then(response => response.json())
+    .then(product => {
+      // Populate the product name and price dynamically
+      document.getElementById('product-name').textContent = product.name;
+      document.getElementById('stock-info').textContent = `${product.inventory} in stock`; // Assuming inventory data is available
+      document.getElementById('product-price').textContent = `$${product.price.toFixed(2)}`;
+    })
+    .catch(error => {
+      console.error('Error fetching product data:', error);
+      document.getElementById('product-name').textContent = "Product not found";
+      document.getElementById('stock-info').textContent = "Error loading stock info";
+      document.getElementById('product-price').textContent = "$0.00";
+    });
+</script>
+
+
+       <!-- Add to Cart Logic -->
+  <script>
+    document.getElementById("add-to-cart-btn").addEventListener("click", async () => {
+      // Fetch product data dynamically
+      const productId = "67be1ca31acce9ba54d4b6ce"; 
+      
+      try {
+        // Fetch product details from the backend API
+        const response = await fetch(`/api/products/${productId}`);
+        const product = await response.json();
+  
+        if (response.ok) {
+          // Create item object using dynamic product data
+          const item = {
+            itemId: productId,
+            quantity: 1,
+            price: product.price, // Use the price fetched from the API
+          };
+  
+          // Send item details to backend to add to the cart
+          const cartResponse = await fetch("/add-to-cart", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ item }), // Send the item details to the backend
+          });
+  
+          const cartData = await cartResponse.json();
+  
+          if (cartResponse.ok) {
+            alert("Item added to cart!");
+          } else {
+            alert(cartData.message || "Failed to add item to cart");
+          }
+        } else {
+          alert("Failed to fetch product details");
+        }
+      } catch (error) {
+        console.error("Error:", error);
+        alert("An error occurred while adding the item to the cart.");
+      }
+    });
+  </script>
+ 
+    <script src="app.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+          let username = sessionStorage.getItem("username"); 
+          let signInButton = document.getElementById("sign-in");
+      
+          if (username) {
+              signInButton.textContent = username;
+              signInButton.href = "profile.html";
+          }
+      });
+      </script>
+  </body>
+</html>

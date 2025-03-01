@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SmartBooks</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
+      integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="icon" type="image/png" href="images/favicon.png" />
+
+    <style>
+      .product-container {
+        background-color: #fafafa;
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        width: 45%; /* Make each container take up 45% of the available width */
+      }
+
+      .main2 {
+  color: white;
+  background-color: #131313;
+  padding-left: 50px;
+}
+
+.main2 h1 {
+  padding-left: 30px;
+  padding-top: 30px;
+}
+
+.main2 h2,
+.main2 ul {
+  padding-left: 100px;
+}
+
+    </style>
+  </head>
+  <body>
+    <!-- Navbar Section -->
+<nav class="navbar">
+  <div class="navbar__container">
+    <a href="index.html" id="navbar__logo">
+      <i class="fas fa-gem"></i>SmartBooks
+    </a>
+    <div class="navbar__toggle" id="mobile-menu">
+      <span class="bar"></span> <span class="bar"></span>
+      <span class="bar"></span>
+    </div>
+    <ul class="navbar__menu">
+      <li class="navbar__item">
+        <a href="index.html" class="navbar__links">Home</a>
+      </li>
+      <li class="navbar__item">
+        <a href="products.html" class="navbar__links">Products</a>
+      </li>
+      <li class="navbar__item">
+        <a href="contact.html" class="navbar__links">Contact</a>
+      </li>
+      <li class="navbar__item">
+        <a href="cart.html" class="navbar__links">Cart</a>
+      </li>
+      <li class="navbar__btn" id="auth-button">
+        <a href="login.html" class="button" id="sign-in">Sign In</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+
+<!-- Hero Section -->
+<div class="main2">
+  <h1 style="font-size: 36px;">Inventory Management</h1>
+<br>
+<h2 style="font-size: 28px;">Textbooks:</h2>
+<ul>
+  <li><a id="calculus-link" href="calculus-inventory-page.html" style="text-decoration: none; color: white; font-size: 20px;">Calculus Textbook</a></li>
+  <li><a id="biology-link" href="biology-inventory-page.html" style="text-decoration: none; color: white; font-size: 20px;">Biology Textbook</a></li>
+  <li><a id="physics-link" href="physics-inventory-page.html" style="text-decoration: none; color: white; font-size: 20px;">Physics Textbook</a></li>
+</ul>
+<br>
+<h2 style="font-size: 28px;">Apparel & Gifts:</h2>
+<ul>
+  <li><a id="t-shirt-link" href="t-shirt-inventory-page.html" style="text-decoration: none; color: white; font-size: 20px;">University T-Shirt</a></li>
+  <li><a id="hat-link" href="hat-inventory-page.html" style="text-decoration: none; color: white; font-size: 20px;">University Hat</a></li>
+  <li><a id="hoodie-link" href="hoodie-inventory-page.html" style="text-decoration: none; color: white; font-size: 20px;">University Hoodie</a></li>
+</ul>
+
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+</div>
+
+
+    
+    <!-- Footer Section -->
+    <!-- Footer Section -->
+<div class="footer__container">
+  <section class="social__media">
+    <div class="social__media--wrap">
+      <div class="footer__logo">
+        <a href="/" id="footer__logo"><i class="fas fa-gem"></i>SmartBooks</a>
+      </div>
+      <p class="website__rights">© SmartBooks 2025. All rights reserved</p>
+      <div class="social__icons">
+        <a
+          class="social__icon--link"
+          target="_blank"
+          aria-label="Facebook"
+        >
+          <i class="fab fa-facebook"></i>
+        </a>
+        <a
+          class="social__icon--link"
+          target="_blank"
+          aria-label="Instagram"
+        >
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a
+          class="social__icon--link"
+          target="_blank"
+          aria-label="Youtube"
+        >
+          <i class="fab fa-youtube"></i>
+        </a>
+        <a
+          class="social__icon--link"
+          target="_blank"
+          aria-label="Twitter"
+        >
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a
+          class="social__icon--link"
+          target="_blank"
+          aria-label="LinkedIn"
+        >
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+</div>
+
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+          let username = sessionStorage.getItem("username"); 
+          let signInButton = document.getElementById("sign-in");
+      
+          if (username) {
+              signInButton.textContent = username;
+              signInButton.href = "profile.html";
+          }
+      });
+      </script>
+
+<script>
+  // Array of product IDs and their corresponding element IDs
+  const products = [
+    { id: '67ab75e6931b4696e7563d99', elementId: 'calculus-link' },
+    { id: '67be16871acce9ba54d4b6cb', elementId: 'biology-link' },
+    { id: '67be16c01acce9ba54d4b6cc', elementId: 'physics-link' },
+    { id: '67ab6fb944f44d65abac8b5b', elementId: 't-shirt-link' },
+    { id: '67be1c761acce9ba54d4b6cd', elementId: 'hat-link' },
+    { id: '67be1ca31acce9ba54d4b6ce', elementId: 'hoodie-link' }
+  ];
+
+  // Loop over each product and fetch its details
+  products.forEach(product => {
+    const apiUrl = `/api/products/${product.id}`;
+
+    fetch(apiUrl)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Product not found');
+        }
+        return response.json();
+      })
+      .then(data => {
+        // Update the link text with the product name
+        const linkElement = document.getElementById(product.elementId);
+        linkElement.textContent = data.name;
+      })
+      .catch(error => {
+        console.error('Error fetching product data:', error);
+        // Optionally, you can add fallback text
+        const linkElement = document.getElementById(product.elementId);
+        linkElement.textContent = 'Product not found';
+      });
+  });
+</script>
+
+                            
+    
+  </body>
+</html>

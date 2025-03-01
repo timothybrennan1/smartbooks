@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SmartBooks</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
+      integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/png" href="images/favicon.png" />
+    <style>
+
+#welcome-message {
+  font-size: 50px; /* Same as h1 */
+  font-weight: bold;
+  color: #f77062; /* Match the h1 color */
+  text-align: center;
+  margin-top: 0; 
+  /* padding-top: 50px; */
+  background-color: #131313;
+}
+
+
+      /* .body {
+        background-color: #f4f4f4;
+      } */
+      /* Your existing styles for cart page */
+      .cart-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20px;
+      }
+
+      .cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  height: 150px;
+  margin: 10px 0;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden; /* Ensures nothing overflows */
+  
+}
+
+.item-image {
+  max-width: 100px;  /* Limit max width */
+  max-height: 100px; /* Limit max height */
+  width: auto;      /* Keep aspect ratio */
+  height: auto;     /* Keep aspect ratio */
+  margin-right: 20px;
+  object-fit: contain; /* Ensures the image is contained within the box */
+  
+}
+
+      .item-details {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .item-name {
+        font-size: 18px;
+        font-weight: bold;
+        color: black;
+      }
+
+      .item-price {
+        font-size: 16px;
+        color: #555;
+      }
+
+      .total-price {
+        font-size: 24px;
+        font-weight: bold;
+        margin-top: 20px;
+        color: white !important;
+      }
+
+      .welcome-message {
+        text-align: center;
+        font-size: 18px;
+        margin-top: 20px;
+        margin-bottom: 0px;
+        
+
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar Section -->
+    <nav class="navbar">
+      <div class="navbar__container">
+        <a href="index.html" id="navbar__logo">
+          <i class="fas fa-gem"></i>SmartBooks
+        </a>
+        <div class="navbar__toggle" id="mobile-menu">
+          <span class="bar"></span> <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+        <ul class="navbar__menu">
+          <li class="navbar__item">
+            <a href="index.html" class="navbar__links">Home</a>
+          </li>
+          <li class="navbar__item">
+            <a href="products.html" class="navbar__links">Products</a>
+          </li>
+          <li class="navbar__item">
+            <a href="contact.html" class="navbar__links">Contact</a>
+          </li>
+          <li class="navbar__item">
+            <a href="cart.html" class="navbar__links">Cart</a>
+          </li>
+          <li class="navbar__btn" id="auth-button">
+            <a href="login.html" class="button" id="sign-in">Sign In</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+
+    <!-- Welcome Message -->
+    <div id="welcome-message" class="welcome-message">
+      <!-- Dynamic content will be injected here -->
+    </div>
+
+    <!-- Cart Section -->
+    <div class="main">
+      <div class="main__container">
+        <div class="cart-container" id="cart-container">
+          <!-- Cart items will be populated here -->
+        </div>
+
+        <div class="total-row">
+          <div class="total-box">
+            <span style="color: white;">Total Price: </span><span id="total-price" style="color: white;">$0.00</span>
+          </div>
+          <div class="total-box">
+            <button class="checkout-button" id="checkout-btn">Proceed to Checkout</button>
+
+            
+          </div>
+        </div>
+      </div>
+      <br><br><br><br><br>
+    </div>
+
+    <!-- Footer Section -->
+    <!-- Footer Section -->
+<div class="footer__container">
+  <section class="social__media">
+    <div class="social__media--wrap">
+      <div class="footer__logo">
+        <a href="/" id="footer__logo"><i class="fas fa-gem"></i>SmartBooks</a>
+      </div>
+      <p class="website__rights">© SmartBooks 2025. All rights reserved</p>
+      <div class="social__icons">
+        <a
+          class="social__icon--link"
+          target="_blank"
+          aria-label="Facebook"
+        >
+          <i class="fab fa-facebook"></i>
+        </a>
+        <a
+          class="social__icon--link"
+          target="_blank"
+          aria-label="Instagram"
+        >
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a
+          class="social__icon--link"
+          target="_blank"
+          aria-label="Youtube"
+        >
+          <i class="fab fa-youtube"></i>
+        </a>
+        <a
+          class="social__icon--link"
+          target="_blank"
+          aria-label="Twitter"
+        >
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a
+          class="social__icon--link"
+          target="_blank"
+          aria-label="LinkedIn"
+        >
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+</div>
+
+    <script src="app.js"></script>
+
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+          let username = sessionStorage.getItem("username"); 
+          let signInButton = document.getElementById("sign-in");
+      
+          if (username) {
+              signInButton.textContent = username;
+              signInButton.href = "profile.html";
+          }
+      });
+      </script>
+
+<script>
+  document.getElementById("checkout-btn").addEventListener("click", () => {
+  fetch("http://localhost:3000/checkout", {
+    method: "POST",
+    credentials: "same-origin", // Ensures cookies (session) are sent
+    headers: { "Content-Type": "application/json" }
+  })
+  .then(response => response.json())
+  .then(data => {
+    alert(data.message);
+    if (data.message.includes("successful")) {
+      window.location.reload(); // Refresh page after successful checkout
+    }
+  })
+  .catch(error => console.error("Checkout error:", error));
+});
+
+</script>
+
+
+<script>
+      // Fetch the cart items from the backend
+      fetch("http://localhost:3000/cart") // Adjust this route if needed
+  .then((response) => response.json())
+  .then((data) => {
+    const cartContainer = document.getElementById("cart-container");
+    cartContainer.innerHTML = ""; // Clear previous content
+    let totalPrice = 0;
+    let username = sessionStorage.getItem("username");
+
+    if (data.length > 0) {
+      // Cart has items, display them
+      data.forEach((item) => {
+        const cartItem = document.createElement("div");
+        cartItem.classList.add("cart-item");
+
+        cartItem.innerHTML = `
+          <div class="item-image">
+            <img src="images/${item.itemId}.jpg" alt="${item.name}"/>
+          </div>
+          <div class="item-details">
+            <span class="item-name">${item.name}</span>
+            <span class="item-quantity-price">
+              <span class="item-quantity">${item.quantity}</span> x $<span>${item.price}</span>
+            </span>
+          </div>
+          <div class="item-actions">
+            <button class="remove-item" data-item-id="${item.itemId}"> - </button>
+            <span class="item-quantity-actions">${item.quantity}</span>
+            <button class="add-item" data-item-id="${item.itemId}"> + </button>
+          </div>
+        `;
+        cartContainer.appendChild(cartItem);
+        totalPrice += item.price * item.quantity;
+      });
+
+      // Update total price
+      document.getElementById("total-price").textContent = `$${totalPrice.toFixed(2)}`;
+    } else {
+      // Cart is empty
+      if (username) {
+        cartContainer.innerHTML = '<p style="color: white;">Your cart is empty.</p>';
+      } else {
+        cartContainer.innerHTML = '<p style="color: white; font-size: 24px; font-weight: bold;">Please log in to view cart.</p>';
+      }
+    }
+  })
+  .catch((error) => {
+    console.error("Error fetching cart data:", error);
+  });
+
+
+      // Add event listener for remove button
+      document.addEventListener("click", (event) => {
+        if (event.target.classList.contains("remove-item")) {
+          const itemId = event.target.getAttribute("data-item-id");
+
+          // Send a request to the server to remove one item from the cart
+          fetch(`http://localhost:3000/cart/remove/${itemId}`, {
+  method: "POST",
+})
+  .then((response) => response.json())
+  .then((data) => {
+    console.log(data);
+    window.location.reload(); // Refresh to show updated cart
+  })
+  .catch((error) => {
+    console.error("Error removing item:", error);
+  });
+
+        }
+      });
+
+      document.addEventListener("click", (event) => {
+  if (event.target.classList.contains("add-item")) {
+    const itemId = event.target.getAttribute("data-item-id");
+
+    fetch(`http://localhost:3000/cart/add/${itemId}`, {
+      method: "POST",
+    })
+    .then((response) => response.json())
+    .then((data) => {
+      // Only show error alert if there is an actual error in the response
+      if (data.error) {
+        alert(data.error);
+      } else {
+        // Find the updated cart item and update the UI
+        const updatedItem = data.cart.find(item => item.itemId === itemId);
+        if (!updatedItem) {
+          console.error("Item not found in updated cart data.");
+          return;
+        }
+
+        // Find the correct cart item in the UI
+        const cartItem = event.target.closest('.cart-item');
+        const quantityElementPrice = cartItem.querySelector('.item-quantity'); // Quantity next to price
+        const quantityElementActions = cartItem.querySelector('.item-quantity-actions'); // Quantity between buttons
+        const priceElement = cartItem.querySelector('.item-price');  
+
+        // Update both quantity displays
+        quantityElementPrice.textContent = updatedItem.quantity;
+        quantityElementActions.textContent = updatedItem.quantity; // Update quantity in actions
+        priceElement.textContent = `${updatedItem.quantity * updatedItem.price}`;
+
+        // Refresh the page to fetch the updated cart data and show the correct total price
+        window.location.reload(); // Refresh the page after item is added
+      }
+    })
+    .catch((error) => {
+      console.error("Error adding item:", error);
+      // alert("An error occurred while adding the item to the cart.");
+      window.location.reload();
+    });
+  }
+});
+
+
+
+
+
+
+
+
+      // Fetch the logged-in user's username from the backend
+      fetch("http://localhost:3000/profile", {
+  method: "GET",
+  credentials: "same-origin", // Ensures cookies are sent with request
+})
+  .then((response) => response.json())
+  .then((data) => {
+    if (data.user && data.user.username) {
+      document.getElementById("welcome-message").textContent = `Welcome, ${data.user.username}`;
+    } else {
+      document.getElementById("welcome-message").textContent = "Welcome Guest";
+    }
+  })
+  .catch((error) => {
+    console.error("Error fetching username:", error);
+    document.getElementById("welcome-message").textContent = "Welcome Guest";
+  });
+
+    </script>
+  </body>
+</html>

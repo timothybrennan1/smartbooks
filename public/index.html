@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SmartBooks</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
+      integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="icon" type="image/png" href="images/favicon.png" />
+  </head>
+  <body>
+    <!-- Navbar Section -->
+    <!-- Navbar Section -->
+<nav class="navbar">
+  <div class="navbar__container">
+    <a href="index.html" id="navbar__logo">
+      <i class="fas fa-gem"></i>SmartBooks
+    </a>
+    <div class="navbar__toggle" id="mobile-menu">
+      <span class="bar"></span> <span class="bar"></span>
+      <span class="bar"></span>
+    </div>
+    <ul class="navbar__menu">
+      <li class="navbar__item">
+        <a href="index.html" class="navbar__links">Home</a>
+      </li>
+      <li class="navbar__item">
+        <a href="products.html" class="navbar__links">Products</a>
+      </li>
+      <li class="navbar__item">
+        <a href="contact.html" class="navbar__links">Contact</a>
+      </li>
+      <li class="navbar__item">
+        <a href="cart.html" class="navbar__links">Cart</a>
+      </li>
+      <li class="navbar__btn" id="auth-button">
+        <a href="login.html" class="button" id="sign-in">Sign In</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+
+    <!-- Hero Section -->
+    <div class="main">
+      <div class="main__container">
+        <div class="main__content">
+          <h1>TEXTBOOKS.</h1>
+          <h2>SIMPLIFIED</h2>
+          <p>Shop the bookstore today.</p>
+          <button class="main__btn">
+            <a href="products.html">Get Started</a>
+          </button>
+        </div>
+        <div class="main__img--container">
+          <img id="main__img" src="images/pic1.svg" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Services Section -->
+    <div class="services" style="padding-top: 20px">
+      <h1>Fully online university bookstore</h1>
+      <div class="services__container">
+        <div
+          class="services__card"
+          onclick="window.location.href='textbooks.html';"
+        >
+          <h2>Textbooks</h2>
+          <p>Shop Course Textbooks and Other Books</p>
+          <button
+            style="
+              background-color: teal;
+              transition: background-color 0.3s ease;
+            "
+            onclick="window.location.href='textbooks.html';"
+          >
+            Get Started
+          </button>
+        </div>
+        <div
+          class="services__card"
+          onclick="window.location.href='apparel-and-gifts.html';"
+        >
+          <h2>Apparel and Gifts</h2>
+          <p>Shop t-shirts, hoodies, hats, and more</p>
+          <button
+            style="
+              background-color: teal;
+              transition: background-color 0.3s ease;
+            "
+            onclick="window.location.href='apparel-and-gifts.html';"
+          >
+            Get Started
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Section -->
+    <!-- Footer Section -->
+<div class="footer__container">
+  <section class="social__media">
+    <div class="social__media--wrap">
+      <div class="footer__logo">
+        <a href="/" id="footer__logo"><i class="fas fa-gem"></i>SmartBooks</a>
+      </div>
+      <p class="website__rights">© SmartBooks 2025. All rights reserved</p>
+      <div class="social__icons">
+        <a
+          class="social__icon--link"
+          target="_blank"
+          aria-label="Facebook"
+        >
+          <i class="fab fa-facebook"></i>
+        </a>
+        <a
+          class="social__icon--link"
+          target="_blank"
+          aria-label="Instagram"
+        >
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a
+          class="social__icon--link"
+          target="_blank"
+          aria-label="Youtube"
+        >
+          <i class="fab fa-youtube"></i>
+        </a>
+        <a
+          class="social__icon--link"
+          target="_blank"
+          aria-label="Twitter"
+        >
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a
+          class="social__icon--link"
+          target="_blank"
+          aria-label="LinkedIn"
+        >
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+</div>
+<script src="app.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    let username = sessionStorage.getItem("username"); 
+    let signInButton = document.getElementById("sign-in");
+
+    if (username) {
+        signInButton.textContent = username;
+        signInButton.href = "profile.html";
+    }
+});
+
+</script>
+    
+  
+    <script>
+      fetch("http://localhost:3000/api/users/67a62ec3705bedfeb018b7ad") // Replace with an actual user ID
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.username) {
+            document.getElementById(
+              "user-info"
+            ).textContent = `User: ${data.username}`;
+          } else {
+            document.getElementById("user-info").textContent =
+              "No user data found.";
+          }
+        })
+        .catch((error) => {
+          console.error("Error fetching data:", error);
+          document.getElementById("user-info").textContent =
+            "Failed to load user data.";
+        });
+    </script>
+
+    
+  </body>
+</html>
