@@ -48,35 +48,34 @@
   </head>
   <body>
     <!-- Navbar Section -->
-<nav class="navbar">
-  <div class="navbar__container">
-    <a href="index.html" id="navbar__logo">
-      <i class="fas fa-gem"></i>SmartBooks
-    </a>
-    <div class="navbar__toggle" id="mobile-menu">
-      <span class="bar"></span> <span class="bar"></span>
-      <span class="bar"></span>
-    </div>
-    <ul class="navbar__menu">
-      <li class="navbar__item">
-        <a href="index.html" class="navbar__links">Home</a>
-      </li>
-      <li class="navbar__item">
-        <a href="products.html" class="navbar__links">Products</a>
-      </li>
-      <li class="navbar__item">
-        <a href="contact.html" class="navbar__links">Contact</a>
-      </li>
-      <li class="navbar__item">
-        <a href="cart.html" class="navbar__links">Cart</a>
-      </li>
-      <li class="navbar__btn" id="auth-button">
-        <a href="login.html" class="button" id="sign-in">Sign In</a>
-      </li>
-    </ul>
-  </div>
-</nav>
-
+    <nav class="navbar">
+      <div class="navbar__container">
+        <a href="index.html" id="navbar__logo">
+          <i class="fas fa-gem"></i>SmartBooks
+        </a>
+        <div class="navbar__toggle" id="mobile-menu">
+          <span class="bar"></span> <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+        <ul class="navbar__menu" id="navbar-links">
+          <li class="navbar__item">
+            <a href="index.html" class="navbar__links">Home</a>
+          </li>
+          <li class="navbar__item">
+            <a href="products.html" class="navbar__links">Products</a>
+          </li>
+          <li class="navbar__item">
+            <a href="contact.html" class="navbar__links">Contact</a>
+          </li>
+          <li class="navbar__item">
+            <a href="cart.html" class="navbar__links">Cart</a>
+          </li>
+          <li class="navbar__btn" id="auth-button">
+            <a href="login.html" class="button" id="sign-in">Sign In</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
 
 <!-- Hero Section -->
 <div class="main2">
@@ -164,6 +163,62 @@
           }
       });
       </script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", async function () {
+    let username = sessionStorage.getItem("username");
+    let signInButton = document.getElementById("sign-in");
+    let profileLink = document.getElementById("profile-link");
+    let navbarLinks = document.querySelectorAll(".navbar__links");  // Get all navbar links
+
+    // If the user is logged in
+    if (username) {
+        try {
+            const response = await fetch(`/api/users/${username}`);
+            const user = await response.json();
+
+            if (response.ok) {
+                // If the user is an admin, disable other links
+                if (user.admin) {
+                    // Hide other navbar links except Profile link
+                    navbarLinks.forEach(link => {
+                        if (link !== profileLink) {
+                          link.style.display = "none";
+                        }
+                    });
+                    // Update the Profile link with the username
+                    profileLink.textContent = username;
+                    profileLink.style.pointerEvents = "auto"; // Ensure the Profile link works
+                } else {
+                    // If the user is not an admin, enable all links
+                    navbarLinks.forEach(link => {
+                        link.style.pointerEvents = "auto"; // Enable all links
+                        link.style.color = ""; // Reset the color for enabled links
+                    });
+                    // Set the default Profile link text
+                    profileLink.textContent = "Profile";
+                }
+
+                // Hide the "Sign In" button since the user is logged in
+                signInButton.style.display = "none";
+            } else {
+                console.error("Error loading profile:", user.error);
+            }
+        } catch (error) {
+            console.error("Failed to fetch user data:", error);
+        }
+    } else {
+        // If no user is logged in, show the "Sign In" button and disable the Profile link
+        signInButton.style.display = "inline";
+        profileLink.textContent = "Profile";  // Default Profile link text
+        navbarLinks.forEach(link => {
+            link.style.pointerEvents = "auto"; // Enable all links for non-logged-in users
+            link.style.color = ""; // Reset color for non-logged-in users
+        });
+    }
+});
+
+  </script>
 
 <script>
   // Array of product IDs and their corresponding element IDs

@@ -29,35 +29,35 @@
   </head>
   <body>
   
-<nav class="navbar">
-  <div class="navbar__container">
-    <a href="index.html" id="navbar__logo">
-      <i class="fas fa-gem"></i>SmartBooks
-    </a>
-    <div class="navbar__toggle" id="mobile-menu">
-      <span class="bar"></span> <span class="bar"></span>
-      <span class="bar"></span>
-    </div>
-    <ul class="navbar__menu">
-      <li class="navbar__item">
-        <a href="index.html" class="navbar__links">Home</a>
-      </li>
-      <li class="navbar__item">
-        <a href="products.html" class="navbar__links">Products</a>
-      </li>
-      <li class="navbar__item">
-        <a href="contact.html" class="navbar__links">Contact</a>
-      </li>
-      <li class="navbar__item">
-        <a href="cart.html" class="navbar__links">Cart</a>
-      </li>
-      <li class="navbar__btn" id="auth-button">
-        <a href="login.html" class="button" id="sign-in">Sign In</a>
-      </li>
-    </ul>
-  </div>
-</nav>
-
+    <nav class="navbar">
+      <div class="navbar__container">
+        <a href="index.html" id="navbar__logo">
+          <i class="fas fa-gem"></i>SmartBooks
+        </a>
+        <div class="navbar__toggle" id="mobile-menu">
+          <span class="bar"></span> <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+        <ul class="navbar__menu" id="navbar-links">
+          <li class="navbar__item">
+            <a href="index.html" class="navbar__links">Home</a>
+          </li>
+          <li class="navbar__item">
+            <a href="products.html" class="navbar__links">Products</a>
+          </li>
+          <li class="navbar__item">
+            <a href="contact.html" class="navbar__links">Contact</a>
+          </li>
+          <li class="navbar__item">
+            <a href="cart.html" class="navbar__links">Cart</a>
+          </li>
+          <li class="navbar__btn" id="auth-button">
+            <a href="login.html" class="button" id="sign-in">Sign In</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    
 
 
     <div class="main">
@@ -69,9 +69,9 @@
           <p style="color: white;"><strong>Last Name:</strong> <span id="last-name" style="color: white;">Loading...</span></p>
           <p style="color: white;"><strong>Username:</strong> <span id="username" style="color: white;">Loading...</span></p>
           <br>
-          <p style="color: white;"><strong>My cart:</strong> <a href="cart.html" style="color: #f77062;">Cart</a></p>
-          <p style="color: white;"><strong>Order History:</strong> <a href="order-history.html" style="color: #f77062;">Order History</a></p>
-          <br>
+          <p style="color: white;" id="cart-section"><strong>My cart:</strong> <a href="cart.html" style="color: #f77062;">Cart</a></p>
+          <p style="color: white;" id="order-history-section"><strong>Order History:</strong> <a href="order-history.html" style="color: #f77062;">Order History</a></p>
+<br>
 
         
             <p style="color: white;">
@@ -195,16 +195,19 @@ document.addEventListener("DOMContentLoaded", async function () {
         const user = await response.json();
 
         if (response.ok) {
-            document.getElementById("first-name").textContent = user.firstName; // Now correctly references firstName
-            document.getElementById("last-name").textContent = user.lastName;  // Now correctly references lastName
+            document.getElementById("first-name").textContent = user.firstName;
+            document.getElementById("last-name").textContent = user.lastName;
             document.getElementById("username").textContent = user.username;
 
             // Check if the user is an admin
             if (user.admin) {
-                      // If admin, display the "Inventory" link
-                      document.getElementById("admin-link").style.display = "block";
-                  }
-
+                // Hide cart and order history for admin users
+                document.getElementById("cart-section").style.display = "none";
+                document.getElementById("order-history-section").style.display = "none";
+                
+                // Display admin link
+                document.getElementById("admin-link").style.display = "block";
+            }
 
         } else {
             console.error("Error loading profile:", user.error);
@@ -215,7 +218,45 @@ document.addEventListener("DOMContentLoaded", async function () {
 });
 
     </script>
-    
+
+<script>
+  document.addEventListener("DOMContentLoaded", async function () {
+    let username = sessionStorage.getItem("username");
+
+    if (!username) {
+      window.location.href = "login.html"; // Redirect to login if not logged in
+      return;
+    }
+
+    try {
+      const response = await fetch(`/api/users/${username}`);
+      const user = await response.json();
+
+      if (response.ok) {
+        document.getElementById("first-name").textContent = user.firstName;
+        document.getElementById("last-name").textContent = user.lastName;
+        document.getElementById("username").textContent = user.username;
+
+        // Check if the user is an admin
+        if (user.admin) {
+          // Hide navbar links except for the logo
+          document.getElementById("navbar-links").style.display = "none";
+          
+          // Disable the link for the SmartBooks logo but keep the icon displayed
+          const logo = document.getElementById("navbar__logo");
+          logo.removeAttribute("href"); // Remove the link
+          logo.style.cursor = "default"; // Change the cursor to indicate it's not clickable
+        }
+
+      } else {
+        console.error("Error loading profile:", user.error);
+      }
+    } catch (error) {
+      console.error("Failed to fetch profile data:", error);
+    }
+  });
+</script>
+
     
   </body>
 </html>

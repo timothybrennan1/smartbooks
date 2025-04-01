@@ -6,4 +6,3 @@ Technologies Used
 - Database: MongoDB (via Mongoose)
 - Session Management: Express-Session
 - Authentication: Simple session-based authentication
-"# new-repo" 

@@ -212,20 +212,17 @@ app.post("/api/login", async (req, res) => {
   const { username, password } = req.body;
 
   try {
-      // Find the user by username
       const user = await User.findOne({ username });
 
       if (!user) {
           return res.status(404).json({ error: "User not found" });
       }
 
-      // Compare the entered password with the stored password (assuming no hashing for now)
       if (password === user.password) {
-          // Store user info in the session
-          req.session.user = { id: user._id, username: user.username };
+          req.session.user = { id: user._id, username: user.username, admin: user.admin };
 
-          // Send username to the frontend
-          res.json({ success: true, username: user.username });
+          // Send back admin status along with username
+          res.json({ success: true, username: user.username, admin: user.admin });
       } else {
           res.status(401).json({ error: "Invalid password" });
       }

@@ -221,9 +221,14 @@ document.querySelector(".login-form").addEventListener("submit", async (event) =
     if (response.ok) {
       // Store username in sessionStorage
       sessionStorage.setItem("username", data.username);
+      sessionStorage.setItem("admin", data.admin); // Store admin status
 
-      // Redirect to homepage where navbar updates automatically
-      window.location.href = "index.html";
+      // Redirect based on admin status
+      if (data.admin) {
+        window.location.href = "profile.html"; // Admin dashboard
+      } else {
+        window.location.href = "index.html"; // Regular user dashboard
+      }
     } else {
       alert(data.error || "Login failed");
     }
@@ -234,4 +239,6 @@ document.querySelector(".login-form").addEventListener("submit", async (event) =
 });
 
   </script>
+
+  
 </html>

@@ -91,7 +91,7 @@
           <span class="bar"></span> <span class="bar"></span>
           <span class="bar"></span>
         </div>
-        <ul class="navbar__menu">
+        <ul class="navbar__menu" id="navbar-links">
           <li class="navbar__item">
             <a href="index.html" class="navbar__links">Home</a>
           </li>
@@ -179,6 +179,43 @@
 
 
     <script src="app.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", async function () {
+        let username = sessionStorage.getItem("username");
+    
+        if (!username) {
+          window.location.href = "login.html"; // Redirect to login if not logged in
+          return;
+        }
+    
+        try {
+          const response = await fetch(`/api/users/${username}`);
+          const user = await response.json();
+    
+          if (response.ok) {
+            document.getElementById("first-name").textContent = user.firstName;
+            document.getElementById("last-name").textContent = user.lastName;
+            document.getElementById("username").textContent = user.username;
+    
+            // Check if the user is an admin
+            if (user.admin) {
+              // Hide navbar links except for the logo
+              document.getElementById("navbar-links").style.display = "none";
+              
+              // Disable the link for the SmartBooks logo but keep the icon displayed
+              const logo = document.getElementById("navbar__logo");
+              logo.removeAttribute("href"); // Remove the link
+              logo.style.cursor = "default"; // Change the cursor to indicate it's not clickable
+            }
+    
+          } else {
+            console.error("Error loading profile:", user.error);
+          }
+        } catch (error) {
+          console.error("Failed to fetch profile data:", error);
+        }
+      });
+    </script>
  
     
     <script>
